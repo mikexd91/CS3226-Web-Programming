@@ -67,13 +67,17 @@ function highestThreeSum () {
     var theRows = theTable.getElementsByTagName("tr");
            
     //gets rows of table
-     var rowLength = theTable.rows.length;
-     var goldVal = 0;
+    var rowLength = theTable.rows.length;
+    var goldVal = 0;
     var silverVal = 0;
     var bronzeVal = 0;
+    var pinkVal = 1000000000;
+
     var goldRow = 0;
     var silverRow = 0;
     var bronzeRow = 0;
+    var pinkRow = 0;
+
     //loops through rows    
     for (i = 1; i < rowLength; i++){
       //gets cells of current row  
@@ -81,6 +85,8 @@ function highestThreeSum () {
        //gets amount of cells of current row     
        var cellLength = theCells.length;
        var cellVal = theCells.item(cellLength-1).innerHTML;
+
+       console.log("cellVal --> " + cellVal);
        if(cellVal > goldVal){
         //if current gold is bigger than current silver, move silver to bronze
           if(goldVal > silverVal){
@@ -92,17 +98,24 @@ function highestThreeSum () {
        	   goldVal = cellVal;
        	   goldRow = i;
 
-       }else if(cellVal > silverVal){
+       } else if(cellVal > silverVal){
        	   bronzeVal = silverVal;
        	   bronzeRow = silverRow;
        	   silverVal = cellVal;
        	   silverRow = i;
 
-       }else if(cellVal > bronzeVal){
+       } else if(cellVal > bronzeVal){
        	   bronzeVal = cellVal;
        	   bronzeRow = i;
+       } 
+
+       if (cellVal <= pinkVal) {
+          pinkVal = cellVal;
+          pinkRow = i;
        }
     } 
+
+    console.log(pinkVal + "---" + pinkRow);
     
     // find equivalent rank
     for (i = 1; i < rowLength; i++){
@@ -118,12 +131,15 @@ function highestThreeSum () {
        	   theRows[i].style.backgroundColor = "silver";
        }else if(cellVal == bronzeVal){
        	   theRows[i].style.backgroundColor = "#cd7f32";
+       } else if(cellVal == pinkVal) {
+          theRows[i].style.backgroundColor = "pink";
        }
     } 
     
 	  theRows[goldRow].style.backgroundColor = "gold";
     theRows[silverRow].style.backgroundColor = "silver";
     theRows[bronzeRow].style.backgroundColor = "#cd7f32"; 
+    theRows[pinkRow].style.backgroundColor = "pink"; 
 }
 
 function individualScores () {   
