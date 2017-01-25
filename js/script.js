@@ -3,6 +3,10 @@ $(document).ready(function() {
   $('table.sortable').tablesorter({
     sortList: [[11,1]]
 	});
+
+  $('table.sortable').bind("sortEnd", function() {
+    $(".dataRow").css("height", "20");
+  })
 });
 
 $(document).ready(function() {
@@ -25,8 +29,8 @@ function processData() {
   for (var i = 0; i < students.length; i++) {
     findSum(students[i]);
   }
-  createRanklistTable(students);
 
+  createRanklistTable(students);
   highlightRows();
   highlightCols();
 }
@@ -38,6 +42,11 @@ function findSum(student) {
 }
 
 function createRanklistTable(students) {
+  students.sort(function(a, b) {
+    return b.sum - a.sum;
+  });
+
+  console.log(students);
   var table = $("#ranklistTable");
 
   const headers = ["R", "Flag", "Name", "MC", "TC", "SPE", "HW", "Bs", "KS", "Ac", "DIL", "Sum"];
@@ -75,28 +84,19 @@ function createRanklistTable(students) {
       nameTag = "<td id ='test'>".concat(Name);
     }
 
-    var row = "<tr><td>".concat(R).concat("</td><td>").concat(img).concat("</td>").concat(nameTag).concat("</td><td>").concat(MC).concat("</td><td>").concat(TC).concat("</td><td>").concat(SPE).concat("</td><td>").concat(HW).concat("</td><td>").concat(Bs).concat("</td><td>").concat(KS).concat("</td><td>").concat(Ac).concat("</td><td>").concat(DIL).concat("</td><td>").concat(Sum).concat("</td></tr>");
+    var id = "row_".concat(R);
+    var row = "<tr class='dataRow' id='".concat(id).concat("'><td>").concat(R).concat("</td><td>").concat(img).concat("</td>").concat(nameTag).concat("</td><td>").concat(MC).concat("</td><td>").concat(TC).concat("</td><td>").concat(SPE).concat("</td><td>").concat(HW).concat("</td><td>").concat(Bs).concat("</td><td>").concat(KS).concat("</td><td>").concat(Ac).concat("</td><td>").concat(DIL).concat("</td><td>").concat(Sum).concat("</td></tr>");
     body.append(row);
+
+    if(i < students.length - 1) {
+      var sumToCompare = students[i + 1].sum;
+      var diff = Sum - sumToCompare;
+      var height = 20 + diff * 20;
+      console.log("diff: ", diff);
+      console.log("height: ", height);
+      $("#".concat(id)).css('height', height.toString());
+    }
   }
-  // //consolde.log(student);
-  // var list = [];
-  // for (var key in student_list) {
-  //   list.push(student_list[key]);
-  // console.log(key + " -> " + student_list[key]);
-  // }
-
-  // var theTable = document.getElementById("colorTable");
-  // var theRows = theTable.getElementsByTagName("tr");
-  // var rowLength = theTable.rows.length;
-  // //gets cells of current row
-  // var theCells = theTable.rows.item(row).cells;
-  // //gets amount of cells of current row
-  // var colLength = theCells.length;
-
-  // for (j = 3; j < colLength; j++){
-  //   theCells.item(j).innerHTML = list[j-3];
-  //   console.log(key + " -> " + student_list[key]);
-  // } 
 }
 
 function highlightRows() {
