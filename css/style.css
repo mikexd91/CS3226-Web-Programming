@@ -26,7 +26,6 @@ th{
   color: black;
 }
 
-
 .table-hover tbody tr:hover td {
     background-color: #C5CAE9;
 }
@@ -67,4 +66,28 @@ th{
 .navbar-default .navbar-nav > .open > a:focus {
   color: Gold;
   background-color: #303F9F;
+}
+
+.goldRow {
+  background-color: gold;
+}
+
+.silverRow {
+  background-color: silver;
+}
+
+.bronzeRow {
+  background-color: #cd7f32;
+}
+
+.pinkRow {
+  background-color: pink;
+}
+
+.orangeCol {
+  background-color: orange;
+}
+
+.pinkCol {
+  background-color: pink;
 }

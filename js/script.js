@@ -10,76 +10,108 @@ $(document).ready(function() {
 });
 
 function processData() {
-  var student = [
-    { mc : 4, tc: 0, spe:3, hw: 2.5, bs:1, ks:2, ac: 4, dil: 9, sum: 0 },
-    { mc : 0, tc: 0, spe:3, hw: 2.5, bs:1, ks:2, ac: 4, dil: 4, sum: 0 },
-    { mc : 0, tc: 0, spe:3, hw: 2.5, bs:1, ks:2, ac: 4, dil: 4, sum: 0 },
-    { mc : 0, tc: 0, spe:3, hw: 6, bs:1, ks:2, ac: 4, dil: 7.5, sum: 0 },
-    { mc : 0, tc: 5, spe:1, hw: 2.5, bs:3, ks:2, ac: 4, dil: 5, sum: 0 },
-    { mc : 2, tc: 0, spe:3, hw: 2.5, bs:1, ks:2, ac: 4, dil: 1.5, sum: 0 },
-    { mc : 0, tc: 3, spe:3, hw: 6, bs:4, ks:2, ac: 4, dil: 8.5, sum: 0 },
-    { mc : 0, tc: 0, spe:2, hw: 2.5, bs:1, ks:2, ac: 4, dil: 9, sum: 0 },
-    { mc : 3, tc: 8, spe:3, hw: 2.5, bs:1, ks:2, ac: 4, dil: 9.5, sum: 0 },
-    { mc : 0, tc: 3, spe:3, hw: 2.5, bs:1, ks:2, ac: 4, dil: 10, sum: 0 }];
+  var students = [
+    { r: 1, flag: "img/SGP.png", name: "Abyss", mc : 4, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 2, flag: "img/IDN.png", name: "Raff", mc : 0, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 3, flag: "img/CHN.png", name: "Statik", mc : 0, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 4, flag: "img/VNM.png", name: "Noire", mc : 0, tc: 0, spe:0, hw: 6, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 5, flag: "img/MYS.png", name: "Claude", mc : 0, tc: 5, spe:0, hw: 2.5, bs:3, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 6, flag: "img/SGP.png", name: "Neko", mc : 2, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 7, flag: "img/CHN.png", name: "xJugo", mc : 0, tc: 3, spe:0, hw: 6, bs:4, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 8, flag: "img/VNM.png", name: "Ragnar", mc : 0, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 9, flag: "img/SGP.png", name: "Cleo", mc : 3, tc: 8, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
+    { r: 10, flag: "img/MYS.png", name: "Ariel", mc : 0, tc: 3, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 }];
 
-  for (var i = 0; i < student.length; i++) {
-    findSum(student[i]);
+  for (var i = 0; i < students.length; i++) {
+    findSum(students[i]);
   }
-    
-  for (var i = 0; i < student.length; i++) {
-    fillCells(student[i], i+1);
-  }
+  createRanklistTable(students);
 
   highlightRows();
   highlightCols();
 }
 
-function findSum(student_list) {
-  student_list.sum = student_list.mc + student_list.tc + student_list.spe + student_list.hw +
-  student_list.bs + student_list.ks + student_list.ac + student_list.dil;
+function findSum(student) {
+  student.spe = student.mc + student.tc;
+  student.dil = student.hw + student.bs + student.ks + student.ac;
+  student.sum = student.spe + student.dil; 
 }
 
-function fillCells(student_list,row) {
-  //consolde.log(student);
-  var list = [];
-  for (var key in student_list) {
-    list.push(student_list[key]);
-  //console.log(key + " -> " + student_list[key]);
+function createRanklistTable(students) {
+  var table = $("#ranklistTable");
+
+  const headers = ["R", "Flag", "Name", "MC", "TC", "SPE", "HW", "Bs", "KS", "Ac", "DIL", "Sum"];
+  var head = table.find("thead").find("tr");
+  var body = table.find("tbody");
+
+  for (i = 0; i < headers.length; i++) {
+    var header = "<th>".concat(headers[i]).concat("</th>");
+    head.append(header);
   }
 
-  var theTable = document.getElementById("colorTable");
-  var theRows = theTable.getElementsByTagName("tr");
-  var rowLength = theTable.rows.length;
-  //gets cells of current row
-  var theCells = theTable.rows.item(row).cells;
-  //gets amount of cells of current row
-  var colLength = theCells.length;
+  for (i = 0; i < students.length; i++) {
+    var R = students[i].r;
+    var Name = students[i].name;
+    var MC = students[i].mc;
+    var TC = students[i].tc;
+    var SPE = students[i].spe;
+    var HW = students[i].hw;
+    var Bs = students[i].bs;
+    var KS = students[i].ks;
+    var Ac = students[i].ac;
+    var DIL = students[i].dil;
+    var Sum = students[i].sum;
+    var Image = students[i].flag;
 
-  for (j = 3; j < colLength; j++){
-    theCells.item(j).innerHTML = list[j-3];
-    console.log(key + " -> " + student_list[key]);
-  } 
+    var img = "<img height= '20px' src=".concat(Image).concat(">");
+    var nameTag;
+    if (Name === "Abyss") {
+      nameTag = "<td id ='test'><a href='student1.html'>".concat(Name).concat("</a>");
+    } else if (Name === "Raff") {
+      nameTag = "<td id ='test'><a href='student2.html'>".concat(Name).concat("</a>");
+    } else if (Name === "Noire") {
+      nameTag = "<td id ='test'><a href='student3.html'>".concat(Name).concat("</a>");
+    } else {
+      nameTag = "<td id ='test'>".concat(Name);
+    }
+
+    var row = "<tr><td>".concat(R).concat("</td><td>").concat(img).concat("</td>").concat(nameTag).concat("</td><td>").concat(MC).concat("</td><td>").concat(TC).concat("</td><td>").concat(SPE).concat("</td><td>").concat(HW).concat("</td><td>").concat(Bs).concat("</td><td>").concat(KS).concat("</td><td>").concat(Ac).concat("</td><td>").concat(DIL).concat("</td><td>").concat(Sum).concat("</td></tr>");
+    body.append(row);
+  }
+  // //consolde.log(student);
+  // var list = [];
+  // for (var key in student_list) {
+  //   list.push(student_list[key]);
+  // console.log(key + " -> " + student_list[key]);
+  // }
+
+  // var theTable = document.getElementById("colorTable");
+  // var theRows = theTable.getElementsByTagName("tr");
+  // var rowLength = theTable.rows.length;
+  // //gets cells of current row
+  // var theCells = theTable.rows.item(row).cells;
+  // //gets amount of cells of current row
+  // var colLength = theCells.length;
+
+  // for (j = 3; j < colLength; j++){
+  //   theCells.item(j).innerHTML = list[j-3];
+  //   console.log(key + " -> " + student_list[key]);
+  // } 
 }
 
 function highlightRows() {
-  var theTable = document.getElementById("colorTable");
-  var theRows = theTable.getElementsByTagName("tr");
+  var rows = $("#ranklistTable").find("tbody").find("tr");
 
-  //gets rows of table
-  var rowLength = theTable.rows.length;
   var goldVal = 0, silverVal = 0, bronzeVal = 0, pinkVal = 1000000000;
   var goldRow = 0, silverRow = 0, bronzeRow = 0, pinkRow = 0;
 
-  //loops through rows
-  for (i = 1; i < rowLength; i++) {
-    //gets cells of current row
-    var theCells = theTable.rows.item(i).cells;
-    //gets amount of cells of current row
-    var cellLength = theCells.length;
-    var cellVal = theCells.item(cellLength-1).innerHTML;
-
+  for (i = 0; i < rows.length; i++) {
+    var cells = rows[i].cells;
+    var cellLen = cells.length;
+    var cellVal = parseFloat(cells.item(cellLen - 1).innerHTML, 10);
+    
     if (cellVal > goldVal) {
-      //if current gold is bigger than current silver, move silver to bronze
+          //if current gold is bigger than current silver, move silver to bronze
       if (goldVal > silverVal) {
         bronzeVal = silverVal;
         bronzeRow = silverRow;
@@ -97,63 +129,54 @@ function highlightRows() {
       bronzeVal = cellVal;
       bronzeRow = i;
     } 
-    
-    if (cellVal <= pinkVal) {
+
+    if (cellVal < pinkVal) {
       pinkVal = cellVal;
       pinkRow = i;
     }
   }
 
   // find equivalent rank
-  for (i = 1; i < rowLength; i++) {
-    //gets cells of current row
-    var theCells = theTable.rows.item(i).cells;
-    //gets amount of cells of current row
-    var cellLength = theCells.length;
-    var cellVal = theCells.item(cellLength-1).innerHTML;
+  for (i = 0; i < rows.length; i++) {
+    var cells = rows[i].cells;
+    var cellLen = cells.length;
+    var cellVal = parseFloat(cells.item(cellLen - 1).innerHTML, 10);
        
     if (cellVal == goldVal) {
-      theRows[i].style.backgroundColor = "gold";
+      $(rows[i]).addClass("goldRow");
     } else if (cellVal == silverVal) {
-      theRows[i].style.backgroundColor = "silver";
+      $(rows[i]).addClass("silverRow");
     } else if (cellVal == bronzeVal) {
-      theRows[i].style.backgroundColor = "#cd7f32";
+      $(rows[i]).addClass("bronzeRow");
     } else if (cellVal == pinkVal) {
-      theRows[i].style.backgroundColor = "pink";
+      $(rows[i]).addClass("pinkRow");
     }
   }
-
-	theRows[goldRow].style.backgroundColor = "gold";
-  theRows[silverRow].style.backgroundColor = "silver";
-  theRows[bronzeRow].style.backgroundColor = "#cd7f32";
-  theRows[pinkRow].style.backgroundColor = "pink";
 }
 
 function highlightCols() {
-  for (i = 0; i < 9; i++) {
+  for (i = 0; i < 8; i++) {
+    var cols = $("#ranklistTable").find("tbody").find("td");
+    var colLen = cols.length;
+
     var topVal = 0, topCell = 0;
-    var theTable = document.getElementById("colorTable");   
-    var theColumns = theTable.getElementsByTagName("td");
-    var columnLength = theColumns.length; 
-    
-		for (j = i + 3; j < columnLength; j += 12){                
-      var cellVal = theColumns[j].innerHTML; 
+
+    for (j = i + 3; j < colLen; j += 12) {                
+      var cellVal = parseFloat(cols[j].innerHTML, 10); 
 
       if (cellVal > topVal) {
-       	topVal = cellVal;
-       	topCell = j;        
-      }      	     	  
+        topVal = cellVal;
+        topCell = j;        
+      }               
     }
-    
-    theColumns[topCell].style.backgroundColor = "orange";
 
     //find same value as top value   
-    for (k = i + 3; k < columnLength; k += 12){                
-      var cellVal = theColumns[k].innerHTML;
+    for (k = i + 3; k < colLen; k += 12) {                
+      var cellVal = parseFloat(cols[k].innerHTML, 10);
 
       if (cellVal == topVal) {
-       	theColumns[k].style.backgroundColor = "orange";       
-      }      	     	  
+        $(cols[k]).addClass("orangeCol");
+      }               
     }
   } 
 }       
@@ -161,15 +184,14 @@ function highlightCols() {
 function hightlightCrosses() {
   var topVal = 0;
   var topCell = 0;
-  var theTable = document.getElementById("studentTable");   
-  var theColumns = theTable.getElementsByTagName("td");
-  var columnLength = theColumns.length; 
+  var cols = $("#studentTable").find("tbody").find("td");
+  var colLen = cols.length;
     
-	for (j = 0; j < columnLength; j++){                
-    var cellVal = theColumns[j].innerHTML; 
+	for (j = 0; j < colLen; j++){                
+    var cellVal = cols[j].innerHTML; 
 
     if (cellVal == "x") {
-      theColumns[j].style.backgroundColor = "pink";    
+      $(cols[j]).addClass("pinkCol");
     } 
   }
 }
