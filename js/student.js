@@ -2,7 +2,7 @@ function generateComponentScore(name) {
 	var id = "#" + name + "ComponentScoreContainer"
 	var container = $(id);
 	var score = componentScores[name];
-	console.log(score);
+	//console.log(score);
 	var speRow = "<p><b>SPE</b>(ed) component: <b>" + score.mc + " + " + score.tc + " = " + score.spe + "</b><br>";
 	var dilRow = "<b>DIL</b>(igence) component: <b>" + score.hw + " + " + score.bs + " + " + score.ks + " + " + score.ac + " = " + score.dil + "</b><br>";
 	var sumRow = "<b>Sum = SPE + DIL = " + score.spe + " + " + score.dil + " = " + score.sum + "</b><br>";
@@ -19,7 +19,7 @@ function createTable(name, data) {
 	for (i in studentTableHeadTitles)
 		tbody.append("<th>"+studentTableHeadTitles[i]+"</th>");
 	tbody.append("</tr></thead>");
-	console.log(tbody);
+	//console.log(tbody);
 
 	// insert table values
 	tbody.append("<tbody>");
@@ -39,8 +39,8 @@ function createTable(name, data) {
    		row = [row.slice(0, position), "<td id=\"" + studentTableField[i] + "\">" + sum + "</td>", row.slice(position)].join('');
 		summary.push(sum);
 		tbody.append(row);
-		tbody.append("</tbody>");
 	}
+	tbody.append("</tbody>");
 
 	return summary;
 }
