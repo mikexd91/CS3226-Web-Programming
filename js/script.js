@@ -9,23 +9,7 @@ $(document).ready(function() {
   })
 });
 
-$(document).ready(function() {
-  hightlightCrosses();
-});
-
 function processData() {
-  var students = [
-    { r: 1, flag: "img/SGP.png", name: "Abyss", mc : 4, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 2, flag: "img/IDN.png", name: "Raff", mc : 0, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 3, flag: "img/CHN.png", name: "Statik", mc : 0, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 4, flag: "img/VNM.png", name: "Noire", mc : 0, tc: 0, spe:0, hw: 6, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 5, flag: "img/MYS.png", name: "Claude", mc : 0, tc: 5, spe:0, hw: 2.5, bs:3, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 6, flag: "img/SGP.png", name: "Neko", mc : 2, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 7, flag: "img/CHN.png", name: "xJugo", mc : 0, tc: 3, spe:0, hw: 6, bs:4, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 8, flag: "img/VNM.png", name: "Ragnar", mc : 0, tc: 0, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 9, flag: "img/SGP.png", name: "Cleo", mc : 3, tc: 8, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 },
-    { r: 10, flag: "img/MYS.png", name: "Ariel", mc : 0, tc: 3, spe:0, hw: 2.5, bs:1, ks:2, ac: 4, dil: 0, sum: 0 }];
-
   for (var i = 0; i < students.length; i++) {
     findSum(students[i]);
   }
@@ -39,6 +23,9 @@ function findSum(student) {
   student.spe = student.mc + student.tc;
   student.dil = student.hw + student.bs + student.ks + student.ac;
   student.sum = student.spe + student.dil; 
+
+  var studentName = student.name.toLowerCase();
+  componentScores[studentName] = {spe: student.spe, mc: student.mc, tc: student.tc, hw: student.hw, bs: student.bs, ks: student.ks, ac: student.ac, dil: student.dil, sum: student.sum};
 }
 
 function createRanklistTable(students) {

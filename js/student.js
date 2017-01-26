@@ -1,21 +1,23 @@
-
+function generateComponentScore(name) {
+	var id = "#" + name + "ComponentScoreContainer"
+	var container = $(id);
+	var score = componentScores[name];
+	console.log(score);
+	var speRow = "<p><b>SPE</b>(ed) component: <b>" + score.mc + " + " + score.tc + " = " + score.spe + "</b><br>";
+	var dilRow = "<b>DIL</b>(igence) component: <b>" + score.hw + " + " + score.bs + " + " + score.ks + " + " + score.ac + " = " + score.dil + "</b><br>";
+	var sumRow = "<b>Sum = SPE + DIL = " + score.spe + " + " + score.dil + " = " + score.sum + "</b><br>";
+	
+	container.append(speRow + dilRow + sumRow);
+}
 
 function createTable(name, data) {
-	component = ["Mini Contests", "Team Contests", "Homework", "Problem Bs", 
-					"Kattis Sets", "Achievements"];
-	head = ["Components", "Sum", 01, 02, 03, 04, 05, 06, 07, 08, 09, 10,
-				11, 12];
-	field = ["mc", "tc", "hm", "ps", "ks", "ac"];
-	
 	var summary = [name];
-	
 	var i, j;
-	
 	var tbody=$("table."+name);
 	// create table head
 	tbody.append("<thead><tr>");
-	for (i in head)
-		tbody.append("<th>"+head[i]+"</th>");
+	for (i in studentTableHeadTitles)
+		tbody.append("<th>"+studentTableHeadTitles[i]+"</th>");
 	tbody.append("</tr></thead>");
 	console.log(tbody);
 
@@ -23,8 +25,8 @@ function createTable(name, data) {
 	tbody.append("<tbody>");
 	for (i = 0; i < data.length; i++) {
 		var row = "";
-		row = row.concat("<tr class=\"" + field[i] + "\">"); // component cell
-		row = row.concat("<td>" + component[i] + "</td>");
+		row = row.concat("<tr class=\"" + studentTableField[i] + "\">"); // component cell
+		row = row.concat("<td>" + studentTableFieldTitles[i] + "</td>");
 		var sum = 0;
 		for (j = 0; j < data[i].length; j++) {
 			if (typeof(data[i][j]) == "number")
@@ -34,7 +36,7 @@ function createTable(name, data) {
 		row = row.concat("</tr>");
 		// insert sum cell
 		var position = getPosition(row, "<td>", 2);
-   		row = [row.slice(0, position), "<td id=\"" + field[i] + "\">" + sum + "</td>", row.slice(position)].join('');
+   		row = [row.slice(0, position), "<td id=\"" + studentTableField[i] + "\">" + sum + "</td>", row.slice(position)].join('');
 		summary.push(sum);
 		tbody.append(row);
 		tbody.append("</tbody>");
@@ -47,7 +49,6 @@ function getPosition(string, subString, index) {
    return string.split(subString, index).join(subString).length;
 }
 
-      	
 function hightlightCrosses() {
   var topVal = 0;
   var topCell = 0;

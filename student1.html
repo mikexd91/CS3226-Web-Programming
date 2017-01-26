@@ -1,81 +1,77 @@
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
-	   	<meta charset = "utf-8">
+	  <meta charset = "utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel ="stylesheet" href ="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		
-
-
-		<title>CS3226 Ranklist App 2017</title>	
-		
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	
+		<title>Abyss</title>	
 	</head>
-<body>
-<nav class = "navbar navbar-default">
-	   <div class = "container-fluid">
-	     <div class = "navbar-header">
-	         <a class="navbar-brand" href="index.html">CS3226 Ranklist App 2017</a>
-   		 </div>
-   		 <ul class="nav navbar-nav">
-     		 <li><a href="index.html">Home</a></li>
-     		 <li><a href="help.html">Help</a></li> 
-   		 </ul>
-   		 <ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Login</a></li>
-   		 </ul>
-  		</div>
-	</nav>
+  <body>
+    <nav class = "navbar navbar-default">
+    	<div class = "container-fluid">
+    	  <div class = "navbar-header">
+    	    <a class="navbar-brand" href="index.html">CS3226 Ranklist App 2017</a>
+       	</div>
+       	<ul class="nav navbar-nav">
+         	<li><a href="index.html">Home</a></li>
+         	<li><a href="help.html">Help</a></li> 
+       	</ul>
+       	<ul class="nav navbar-nav navbar-right">
+    		  <li><a href="#">Login</a></li>
+       	</ul>
+      </div>
+    </nav>
 
-<div class="container-fluid">
-<div class="row">
-  <div class="col-xs-12 col-sm-8">
-    <h4><b>Abyss</b> in MN02007 S2 AY 2016/17</h4>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <h4><b>Abyss</b> in MN02007 S2 AY 2016/17</h4>
 
-    <p>Facebook account: <a href="https://facebook.com" target="_blank"><b>Abyss</b> <img height="15px" src="img/facebook.jpg"></a>
-    </p>
+          <p>Facebook account: <a href="https://facebook.com" target="_blank"><b>Abyss</b> <img height="15px" src="img/facebook.jpg"></a>
+          </p>
 
-    <p><b>SPE</b>(ed) component: <b>0 + 0 = 0</b><br>
-    <b>DIL</b>(igence) component: <b>1.5 + 0 + 1 + 2 = 4.5</b><br>
-    <b>Sum = SPE + DIL = 0 + 4.5 = 4.5</b>
-    </p>
-  </div>
-  <div class="hidden-xs hidden-sm col-sm-1">
-    <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/SGP.png" width="100px">
-  </div>
-  <div class="hidden-xs hidden-sm col-sm-2">
-    <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/sad.jpg" width="170px" height="130px">
-  </div>
-</div>
+          <div id="abyssComponentScoreContainer">
+          </div>
+        </div>
+        <div class="hidden-xs hidden-sm col-sm-1">
+          <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/SGP.png" width="100px">
+        </div>
+        <div class="hidden-xs hidden-sm col-sm-2">
+          <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/sad.jpg" width="170px" height="130px">
+        </div>
+      </div>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-5">
-    <p>Detailed scores:
-    </p>
+      <div class="row">
+        <div class="col-xs-12 col-sm-5">
+          <p>Detailed scores:
+          </p>
 
-    <div class = "container -fluid">
-		<table class = "table table-hover abyss" id="studentTable"></table>
-    <p>Achievement details:
-    </p>
+          <div class = "container -fluid">
+      		<table class = "table table-hover abyss" id="studentTable"></table>
+          <p>Achievement details:
+          </p>
 
-    <ol>
-          <li>Let it begins</li>          <li>Quick starter</li>                                        
-    </ol>
+          <ol>
+            <li>Let it begins</li>          
+            <li>Quick starter</li>                                        
+          </ol>
 
-    <p>Specific (public) comments about this student: <b></b>
-    </p>
+          <p>Specific (public) comments about this student: <b></b>
+          </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-</div>
- <footer>
-  <p align="center">&copy; 2017 Lab 1 Mike Zhang Xunda, content from Steven
-  </p>
-</footer>
+    <footer>
+      <p align="center">&copy; 2017 Lab 1 Mike Zhang Xunda, content from Steven
+      </p>
+    </footer>
     <!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
@@ -89,6 +85,7 @@
           var sum = createTable("abyss",data["abyss"]);
           console.log(sum);
           hightlightCrosses();
+          generateComponentScore("abyss");
       }); 
     </script>
 	</body>
