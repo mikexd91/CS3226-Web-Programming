@@ -58,7 +58,6 @@
 
     <div class = "container -fluid">
 		<table class = "table table-hover abyss" id="studentTable"></table>
-
     <p>Achievement details:
     </p>
 
@@ -82,21 +81,12 @@
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.js"></script> 		
+		<script type="text/javascript" src="js/data.js"> </script>
 		<script type="text/javascript" src="js/one.js"> </script>
 		<script type="text/javascript" src="js/script.js"> </script>
     <script>
-      var data = [
-		              [1, 1, 1, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'], // mc
-                  [0, 0, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  // tc
-                  [1, 1.5, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  //hw
-                  [0, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  //ps
-                  [0, 1, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  //ks
-                  [2, 1, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']  //ac
-	                ];
-
-      var sum;
       $(document).ready(function() {
-          sum = createTable("abyss",data);
+          var sum = createTable("abyss",data["abyss"]);
           console.log(sum);
           hightlightCrosses();
       }); 

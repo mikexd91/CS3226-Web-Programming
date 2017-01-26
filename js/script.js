@@ -46,7 +46,7 @@ function createRanklistTable(students) {
     return b.sum - a.sum;
   });
 
-  console.log(students);
+  //console.log(students);
   var table = $("#ranklistTable");
 
   const headers = ["R", "Flag", "Name", "MC", "TC", "SPE", "HW", "Bs", "KS", "Ac", "DIL", "Sum"];
@@ -92,8 +92,8 @@ function createRanklistTable(students) {
       var sumToCompare = students[i + 1].sum;
       var diff = Sum - sumToCompare;
       var height = 20 + diff * 20;
-      console.log("diff: ", diff);
-      console.log("height: ", height);
+      //console.log("diff: ", diff);
+      //console.log("height: ", height);
       $("#".concat(id)).css('height', height.toString());
     }
   }

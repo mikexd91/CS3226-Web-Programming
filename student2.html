@@ -58,124 +58,8 @@
     </p>
 
     <div class = "container">
-		<table class = "table table-hover" id="studentTable">
-		<thead>
-		  <tr>
-			<th>Component</th>
-			<th>Sum</th>
-			<th>01</th>
-			<th>02</th>
-			<th>03</th>
-			<th>04</th>
-			<th>05</th>
-			<th>06</th>
-			<th>07</th>
-			<th>08</th>
-			<th>09</th>
-			<th>10</th>
-			<th>11</th>
-			<th>12</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
-			<td>Mini Contests</td>
-			<td>0</td>
-			<td>x</td>
-			<td>x</td>
-			<td>x</td>
-			<td>x</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Team Contests</td>
-			<td class="hidden-xs hidden-sm empty">x</td>
-			<td>x</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Homework</td>
-			<td>0</td>
-			<td>x</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Problem Bs</td>
-			<td>0</td>
-			<td>x</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Kattis Sets</td>
-			<td>x</td>
-			<td>x</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-		  </tr>
-		  <tr>
-			<td>Achievements</td>
-			<td>x</td>
-			<td>x</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-		  </tr>
-		  
-		</tbody>
+		<table class = "table table-hover raff" id="studentTable">
+		
 		</table>
 
     <p>Achievement details:
@@ -195,14 +79,20 @@
   <p align="center">&copy; 2017 Lab 1 Mike Zhang Xunda, content from Steven
   </p>
 </footer>
-       <!-- jQuery library -->
+      <!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.js"></script> 
-		<script type = "text/javascript" src = "js/script.js"> </script>
-		<script>
-			
-		</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.js"></script> 		
+		<script type="text/javascript" src="js/data.js"> </script>
+		<script type="text/javascript" src="js/one.js"> </script>
+		<script type="text/javascript" src="js/script.js"> </script>
+    <script>
+      $(document).ready(function() {
+          var sum = createTable("raff",data["raff"]);
+          console.log(sum);
+          hightlightCrosses();
+      }); 
+    </script>
 	</body>
 </html>
