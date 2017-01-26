@@ -8,75 +8,71 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel ="stylesheet" href ="css/style.css">
-	
+
 		<title>Raff</title>	
 	</head>
   <body>
     <nav class = "navbar navbar-default">
-    	<div class = "container-fluid">
-    	  <div class = "navbar-header">
-    	    <a class="navbar-brand" href="index.html">CS3226 Ranklist App 2017</a>
-       	</div>
-       	<ul class="nav navbar-nav">
-         	<li><a href="index.html">Home</a></li>
-         	<li><a href="help.html">Help</a></li> 
-       	</ul>
-       	<ul class="nav navbar-nav navbar-right">
-    			<li><a href="#">Login</a></li>
-       	</ul>
-      </div>
-    </nav>
+	    <div class = "container-fluid">
+	      <div class = "navbar-header">
+	        <a class="navbar-brand" href="index.html">CS3226 Ranklist App 2017</a>
+   		 </div>
+   		 <ul class="nav navbar-nav">
+     		 <li><a href="index.html">Home</a></li>
+     		 <li><a href="help.html">Help</a></li> 
+   		 </ul>
+   		 <ul class="nav navbar-nav navbar-right">
+			<li><a href="#">Login</a></li>
+   		 </ul>
+  		</div>
+	</nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8">
-          <h4><b>Raff</b> in MN02007 S2 AY 2016/17</h4>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h4><b>Raff</b> in MN02007 S2 AY 2016/17</h4>
 
-          <p>Facebook account: <a href="https://facebook.com" target="_blank"><b>Raff</b> <img height="15px" src="img/facebook.jpg"></a>
-          </p>
-          <div id="raffComponentScoreContainer">
-          </div>
-          </p>
-        </div>
-        <div class="hidden-xs hidden-sm col-sm-1">
-          <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/IND.png" width="100px">
-        </div>
-        <div class="hidden-xs hidden-sm col-sm-2">
-          <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/anger.png" width="130px" height="170px">
-        </div>
-      </div>
+    <p>Facebook account: <a href="https://facebook.com" target="_blank"><b>Raff</b> <img height="15px" src="img/facebook.jpg"></a>
+    </p>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-9">
-          <p>Detailed scores:
-          </p>
-
-          <div class = "container">
-      		<table class = "table table-hover raff" id="studentTable">
-      		
-      		</table>
-
-          <p>Achievement details:
-          </p>
-
-          <ol>
-            <li>Let it begins</li>          
-            <li>Quick starter</li>                                        
-          </ol>
-
-          <p>Specific (public) comments about this student: <b></b>
-          </p>
-          </div>
-        </div>
-      </div>
+    <div id="raffComponentScoreContainer">
     </div>
+  </div>
+  <div class="hidden-xs hidden-sm col-sm-1">
+    <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/IND.png" width="100px">
+  </div>
+  <div class="hidden-xs hidden-sm col-sm-2">
+    <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/anger.png" width="130px" height="170px">
+  </div>
+</div>
 
-    <footer>
-      <p align="center">&copy; 2017 Lab 1 Mike Zhang Xunda, content from Steven
-      </p>
-    </footer>
+<div class="row">
+  <div class="col-xs-12 col-sm-9">
+    <p>Detailed scores:
+    </p>
 
-      <!-- jQuery library -->
+    <div class = "container -fluid">
+		<table class = "table table-hover raff" id="studentTable"></table>
+    <p>Achievement details:
+    </p>
+
+    <ol>
+      <li>Let it begins</li>          
+      <li>Quick starter</li>                                        
+    </ol>
+
+    <p>Specific (public) comments about this student: <b></b>
+    </p>
+    </div>
+  </div>
+</div>
+</div>
+
+ <footer>
+  <p align="center">&copy; 2017 Lab 1 Mike Zhang Xunda, content from Steven
+  </p>
+</footer>
+    <!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -86,8 +82,8 @@
 		<script type="text/javascript" src="js/script.js"> </script>
     <script>
       $(document).ready(function() {
-          var sum = createTable("raff", data["raff"]);
-          console.log(sum);
+          var sum = createTable("raff",data["raff"]);
+          //console.log(sum);
           hightlightCrosses();
           generateComponentScore("raff");
       }); 
