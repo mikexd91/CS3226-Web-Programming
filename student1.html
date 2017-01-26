@@ -57,130 +57,14 @@
     </p>
 
     <div class = "container -fluid">
-		<table class = "table table-hover abyss" id="studentTable">
-		<!--<thead>
-		  <tr>
-			<th>Component</th>
-			<th>Sum</th>
-			<th>01</th>
-			<th>02</th>
-			<th>03</th>
-			<th>04</th>
-			<th>05</th>
-			<th>06</th>
-			<th>07</th>
-			<th>08</th>
-			<th>09</th>
-			<th>10</th>
-			<th>11</th>
-			<th>12</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
-			<td>Mini Contests</td>
-			<td class="mini-contest">0</td>
-			<td class="mini-contest" id="1">1</td>
-			<td class="mini-contest" id="2">x</td>
-			<td class="mini-contest" id="3">x</td>
-			<td class="mini-contest" id="4">x</td>
-			<td class="mini-contest" id="5">x</td>
-			<td class="mini-contest" id="6"></td>
-			<td class="mini-contest" id="7"></td>
-			<td class="mini-contest" id="8"></td>
-			<td class="mini-contest" id="9"></td>
-			<td class="mini-contest" id="10"></td>
-			<td class="mini-contest" id="11"></td>
-			<td class="mini-contest" id="12"></td>
-		</tr>
-		<tr>
-			<td>Team Contests</td>
-			<td class="hidden-xs hidden-sm empty team-contest">x</td>
-			<td class="team-contest" id="1">x</td>
-			<td class="team-contest" id="2">x</td>
-			<td class="team-contest" id="3">x</td>
-			<td class="team-contest" id="4"></td>
-			<td class="team-contest" id="5"></td>
-			<td class="team-contest" id="6"></td>
-			<td class="team-contest" id="7"></td>
-			<td class="team-contest" id="8"></td>
-			<td class="team-contest" id="9"></td>
-			<td class="team-contest" id="10"></td>
-			<td class="team-contest" id="11"></td>
-			<td class="team-contest" id="12"></td>
-		</tr>
-		<tr>
-			<td>Homework</td>
-			<td>0</td>
-			<td class="homework" id="1"></td>
-			<td class="homework" id="2"></td>
-			<td class="homework" id="3"></td>
-			<td class="homework" id="4"></td>
-			<td class="homework" id="5"></td>
-			<td class="homework" id="6"></td>
-			<td class="homework" id="7"></td>
-			<td class="homework" id="8"></td>
-			<td class="homework" id="9"></td>
-			<td class="homework" id="10"></td>
-			<td class="homework" id="11"></td>
-			<td class="homework" id="12"></td>
-		</tr>
-		<tr>
-			<td>Problem Bs</td>
-			<td>0</td>
-			<td class="problem-bs" id="1"></td>
-			<td class="problem-bs" id="2"></td>
-			<td class="problem-bs" id="3"></td>
-			<td class="problem-bs" id="4"></td>
-			<td class="problem-bs" id="5"></td>
-			<td class="problem-bs" id="6"></td>
-			<td class="problem-bs" id="7"></td>
-			<td class="problem-bs" id="8"></td>
-			<td class="problem-bs" id="9"></td>
-			<td class="problem-bs" id="10"></td>
-			<td class="problem-bs" id="11"></td>
-			<td class="problem-bs" id="12"></td>
-		</tr>
-		<tr>
-			<td>Kattis Sets</td>
-			<td>x</td>
-			<td class="kattis-sets" id="1"></td>
-			<td class="kattis-sets" id="2"></td>
-			<td class="kattis-sets" id="3"></td>
-			<td class="kattis-sets" id="4"></td>
-			<td class="kattis-sets" id="5"></td>
-			<td class="kattis-sets" id="6"></td>
-			<td class="kattis-sets" id="7"></td>
-			<td class="kattis-sets" id="8"></td>
-			<td class="kattis-sets" id="9"></td>
-			<td class="kattis-sets" id="10"></td>
-			<td class="kattis-sets" id="11"></td>
-			<td class="kattis-sets" id="12"></td>
-		  </tr>
-		  <tr>
-			<td>Achievements</td>
-			<td>x</td>
-			<td class="achievements" id="1"></td>
-			<td class="achievements" id="2"></td>
-			<td class="achievements" id="3"></td>
-			<td class="achievements" id="4"></td>
-			<td class="achievements" id="5"></td>
-			<td class="achievements" id="6"></td>
-			<td class="achievements" id="7"></td>
-			<td class="achievements" id="8"></td>
-			<td class="achievements" id="9"></td>
-			<td class="achievements" id="10"></td>
-			<td class="achievements" id="11"></td>
-			<td class="achievements" id="12"></td>
-		  </tr>
-		</tbody>-->
-		</table>
+		<table class = "table table-hover abyss" id="studentTable"></table>
 
     <p>Achievement details:
     </p>
 
     <ol>
-          <li>Let it begins</li>          <li>Quick starter</li>                                        </ol>
+          <li>Let it begins</li>          <li>Quick starter</li>                                        
+    </ol>
 
     <p>Specific (public) comments about this student: <b></b>
     </p>
@@ -200,5 +84,22 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.js"></script> 		
 		<script type="text/javascript" src="js/one.js"> </script>
 		<script type="text/javascript" src="js/script.js"> </script>
+    <script>
+      var data = [
+		              [1, 1, 1, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'], // mc
+                  [0, 0, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  // tc
+                  [1, 1.5, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  //hw
+                  [0, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  //ps
+                  [0, 1, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],  //ks
+                  [2, 1, 1, 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']  //ac
+	                ];
+
+      var sum;
+      $(document).ready(function() {
+          sum = createTable("abyss",data);
+          console.log(sum);
+          hightlightCrosses();
+      }); 
+    </script>
 	</body>
 </html>
