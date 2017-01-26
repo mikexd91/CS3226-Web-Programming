@@ -16,9 +16,11 @@ function createTable(name, data) {
 	tbody.append("<thead><tr>");
 	for (i in head)
 		tbody.append("<th>"+head[i]+"</th>");
-	tbody.append("</thead>");
-	
+	tbody.append("</tr></thead>");
+	console.log(tbody);
+
 	// insert table values
+	tbody.append("<tbody>");
 	for (i = 0; i < data.length; i++) {
 		var row = "";
 		row = row.concat("<tr class=\"" + field[i] + "\">"); // component cell
@@ -35,6 +37,7 @@ function createTable(name, data) {
    		row = [row.slice(0, position), "<td id=\"" + field[i] + "\">" + sum + "</td>", row.slice(position)].join('');
 		summary.push(sum);
 		tbody.append(row);
+		tbody.append("</tbody>");
 	}
 
 	return summary;
@@ -49,7 +52,7 @@ function hightlightCrosses() {
   var topVal = 0;
   var topCell = 0;
   var cols = $("#studentTable").find("tbody").find("td");
-  console.log($("#studentTable"));
+  //console.log($("#studentTable"));
   var colLen = cols.length;
     
 	for (j = 0; j < colLen; j++){                

@@ -181,18 +181,3 @@ function highlightCols() {
   } 
 }       
       	
-function hightlightCrosses() {
-  var topVal = 0;
-  var topCell = 0;
-  var cols = $("#studentTable").find("tbody").find("td");
-  var colLen = cols.length;
-    
-	for (j = 0; j < colLen; j++){                
-    var cellVal = cols[j].innerHTML; 
-
-    if (cellVal == "x") {
-      $(cols[j]).addClass("pinkCol");
-    } 
-  }
-}
-
