@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<body></body>
+    <script>
+    var data = [
+    ['Name', 'Age', 'Email'],
+    ['John Doe', '27', 'john@doe.com'],
+    ['Jane Doe', '29', 'jane@doe.com']
+    ];
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/arrayToTable.js"> </script>
+    <script>
+    
+var table = arrayToTable(data, {
+    thead: true,
+    attrs: {class: 'table'}
+});
+$('body').append(table);
+</script>
