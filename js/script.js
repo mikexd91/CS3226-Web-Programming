@@ -33,7 +33,8 @@ function createRanklistTable(students) {
     return b.sum - a.sum;
   });
 
-  //console.log(students);
+  updateStudentId();
+
   var table = $("#ranklistTable");
 
   const headers = ["R", "Flag", "Name", "MC", "TC", "SPE", "HW", "Bs", "KS", "Ac", "DIL", "Sum"];
@@ -83,6 +84,12 @@ function createRanklistTable(students) {
       //console.log("height: ", height);
       $("#".concat(id)).css('height', height.toString());
     }
+  }
+}
+
+function updateStudentId() {
+  for (var i = 0; i < students.length; i ++) {
+    students[i].r = i + 1;
   }
 }
 
@@ -166,5 +173,4 @@ function highlightCols() {
       }               
     }
   } 
-}       
-      	
+} 
