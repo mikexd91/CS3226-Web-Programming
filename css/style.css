@@ -91,3 +91,15 @@ th {
 .pinkCol {
   background-color: pink;
 }
+
+@media screen and (max-width:499px){
+  .unused{
+    display:none;
+  }
+}
+
+@media screen and (max-width:310px){
+  .unusedImage{
+    display:none;
+  }
+}

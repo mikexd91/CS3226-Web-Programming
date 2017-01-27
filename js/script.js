@@ -42,7 +42,13 @@ function createRanklistTable(students) {
   var body = table.find("tbody");
 
   for (i = 0; i < headers.length; i++) {
-    var header = "<th>".concat(headers[i]).concat("</th>");
+    if(i == 3 || i==4 || i==6 || i==7 || i==8 || i== 9){
+      var header = "<th class = 'unused'>".concat(headers[i]).concat("</th>");
+    }else if (i == 1){
+       header = "<th class = 'unusedImage'>".concat(headers[i]).concat("</th>");
+    }else{
+       header = "<th>".concat(headers[i]).concat("</th>");
+    }
     head.append(header);
   }
 
@@ -73,7 +79,11 @@ function createRanklistTable(students) {
     }
 
     var id = "row_".concat(R);
-    var row = "<tr class='dataRow' id='".concat(id).concat("'><td>").concat(R).concat("</td><td>").concat(img).concat("</td>").concat(nameTag).concat("</td><td>").concat(MC).concat("</td><td>").concat(TC).concat("</td><td>").concat(SPE).concat("</td><td>").concat(HW).concat("</td><td>").concat(Bs).concat("</td><td>").concat(KS).concat("</td><td>").concat(Ac).concat("</td><td>").concat(DIL).concat("</td><td>").concat(Sum).concat("</td></tr>");
+    var row = "<tr class='dataRow' id='".concat(id).concat("'><td>").concat(R).concat("</td><td class='unusedImage'>")
+    .concat(img).concat("</td>").concat(nameTag).concat("</td><td class='unused'>").concat(MC).concat("</td><td class='unused'>")
+    .concat(TC).concat("</td><td>").concat(SPE).concat("</td><td class='unused'>").concat(HW).concat("</td><td class='unused'>")
+    .concat(Bs).concat("</td><td class='unused'>").concat(KS).concat("</td><td class='unused'>").concat(Ac).concat("</td><td>")
+    .concat(DIL).concat("</td><td>").concat(Sum).concat("</td></tr>");
     body.append(row);
 
     if(i < students.length - 1) {
