@@ -68,7 +68,11 @@ function createRanklistTable(students) {
       nameTag = "<td id ='test'><a href='student2.html'>".concat(Name).concat("</a>");
     } else if (Name === "Noire") {
       nameTag = "<td id ='test'><a href='student3.html'>".concat(Name).concat("</a>");
-    } else {
+    } else if (Name === "Cleo") {
+      nameTag = "<td id ='test'><a href='student4.html'>".concat(Name).concat("</a>");
+    } else if (Name === "Claude") {
+      nameTag = "<td id ='test'><a href='student5.html'>".concat(Name).concat("</a>");
+    }else {
       nameTag = "<td id ='test'>".concat(Name);
     }
 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+	  <meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel ="stylesheet" href ="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<title>Cleo</title>			
+	</head>
+
+  <body>
+    <nav class = "navbar navbar-default">
+  	  <div class = "container-fluid">
+  	    <div class = "navbar-header">
+  	      <a class="navbar-brand" href="index.html">CS3226 Ranklist App 2017</a>
+     		</div>
+     		<ul class="nav navbar-nav">
+       		<li><a href="index.html">Home</a></li>
+       		<li><a href="help.html">Help</a></li> 
+     		</ul>
+     		<ul class="nav navbar-nav navbar-right">
+  			  <li><a href="#">Login</a></li>
+     		</ul>
+    	</div>
+  	</nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <h4><b>Cleo</b> in MN02007 S2 AY 2016/17</h4>
+          <p>Facebook account: <a href="https://facebook.com" target="_blank"><b>Cleo</b> <img height="15px" src="img/facebook.jpg"></a>
+          </p>
+          <div id="noireComponentScoreContainer">
+          </div>
+        </div>
+        <div class="hidden-xs hidden-sm col-sm-1">
+          <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/SGP.png" width="100px">
+        </div>
+        <div class="hidden-xs hidden-sm col-sm-2">
+          <img style="display: block; margin-left: auto; margin-right: auto; border: 1px solid" src="img/cleo.jpg" width="130px" height="150px">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-5">
+          <p>Detailed scores:
+          </p>
+
+          <div class = "container -fluid">
+        		<table class = "table table-hover cleo" id="studentTable"></table>
+            <p>Achievement details:
+            </p>
+
+            <ol>
+              <li>Let it begins</li>          
+              <li>Quick starter</li>                                        
+            </ol>
+            <p>Specific (public) comments about this student: <b></b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footerContainer"></footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.4/js/jquery.tablesorter.js"></script> 		
+		<script type="text/javascript" src="js/data.js"> </script>
+		<script type="text/javascript" src="js/student.js"> </script>
+    <script type="text/javascript" src="js/script.js"> </script>
+    <script type="text/javascript" src="js/common.js"> </script>
+    <script>
+      $(document).ready(function() {
+          var sum = createTable("cleo",data["cleo"]);
+          //console.log(sum);
+          hightlightCrosses();
+          generateComponentScore("cleo");
+      }); 
+		</script>
+	</body>
+</html>
